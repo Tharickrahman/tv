@@ -1105,6 +1105,8 @@ background: linear-gradient(180deg, #4e342e, #3e2723);
   transition: color 0.3s ease;
 }
 
+
+
 .footer-section ul li a:hover {
   color: #ffcc00;
 }
