@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Television Website</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ===== Navbar Start ===== -->
+  <!-- ===== Navbar Start ===== -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="assets/logo1.png" alt="Logo" />
+    </div>
+
+    <div class="hamburger" id="hamburger">☰</div>
+
+    <ul class="nav-links" id="navLinks">
+      <li class="dropdown">
+        <a href="index.html">Home ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="home1.html">Home1</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html" class="login-btn">Login</a></li>
+    </ul>
+  </nav>
+  <!-- ===== Navbar End ===== -->
+
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
+    const dropdowns = document.querySelectorAll(".dropdown");
+
+    // --- Toggle mobile menu ---
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      hamburger.textContent = navLinks.classList.contains("active") ? "✖" : "☰";
+    });
+
+    // --- Desktop dropdown hover behavior ---
+    document.querySelectorAll(".dropdown").forEach((drop) => {
+      let hideTimeout;
+      const menu = drop.querySelector(".dropdown-menu");
+
+      drop.addEventListener("mouseenter", () => {
+        if (window.innerWidth > 768) {
+          clearTimeout(hideTimeout);
+          menu.style.display = "block";
+          setTimeout(() => {
+            menu.style.opacity = "1";
+            menu.style.visibility = "visible";
+            menu.style.transform = "translateY(0)";
+          }, 50);
+        }
+      });
+
+      drop.addEventListener("mouseleave", () => {
+        if (window.innerWidth > 768) {
+          hideTimeout = setTimeout(() => {
+            menu.style.opacity = "0";
+            menu.style.visibility = "hidden";
+            menu.style.transform = "translateY(10px)";
+            setTimeout(() => {
+              menu.style.display = "none";
+            }, 200);
+          }, 300);
+        }
+      });
+    });
+
+    // --- Mobile dropdown toggle ---
+    dropdowns.forEach((drop) => {
+      drop.addEventListener("click", (e) => {
+        if (window.innerWidth <= 768) {
+          const target = e.target;
+          const menu = drop.querySelector(".dropdown-menu");
+
+          // if clicking on the parent "Home" link
+          if (target.closest(".dropdown > a")) {
+            e.preventDefault(); // only prevent when opening dropdown
+            drop.classList.toggle("active");
+
+            // close others
+            document.querySelectorAll(".dropdown").forEach((other) => {
+              if (other !== drop) other.classList.remove("active");
+            });
+          }
+          // if clicking on inner dropdown item (Home1)
+          else if (target.closest(".dropdown-menu a")) {
+            const href = target.getAttribute("href");
+            if (href) window.location.href = href; // ✅ allow navigation
+          }
+        }
+      });
+    });
+  </script>
+
+
+  <!--vedio section-->
+  <section class="hero">
+    <video autoplay muted loop playsinline class="background-video">
+      <source src="videos/vedio.mp4.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="hero-content">
+      <h1>Experience Television Like Never Before</h1>
+      <p>Your world of entertainment in one place.</p>
+      <a href="home1.html" class="hero-btn">Explore Now</a>
+    </div>
+  </section>
+
+  <!-- SECOND SECTION-->
+  <!-- === Featured Channels Section === -->
+
+  <section class="featured-channels">
+    <h2>Featured Channels</h2>
+    <p class="section-subtitle">Your favorite TV networks in one place</p>
+
+    <div class="channel-container">
+      <div class="channel-card">
+        <img src="assets/sony-removebg-preview.png" alt="Sony Channel">
+        <h3>Sony</h3>
+        <p class="channel-desc">Catch your favorite dramas, reality shows, and entertainment programs all day long.</p>
+        <a href="home1.html" class="channel-btn">View Channel</a>
+      </div>
+      <div class="channel-card">
+        <img src="assets/star sports.png" alt="Star Sports">
+        <h3>Star Sports</h3>
+        <p class="channel-desc">Catch your favorite dramas, reality shows, and entertainment programs all day long.</p>
+        <a href="home1.html" class="channel-btn">View Channel</a>
+      </div>
+      <div class="channel-card">
+        <img src="assets/zee-removebg-preview.png" alt="Zee TV">
+        <h3>Zee TV</h3>
+        <p class="channel-desc">Catch your favorite dramas, reality shows, and entertainment programs all day long.</p>
+        <a href="home1.html" class="channel-btn">View Channel</a>
+      </div>
+      <div class="channel-card">
+        <img src="assets/colors-removebg-preview.png" alt="Colors">
+        <h3>Colors</h3>
+        <p class="channel-desc">Catch your favorite dramas, reality shows, and entertainment programs all day long.</p>
+        <a href="home1.html" class="channel-btn">View Channel</a>
+      </div>
+      <div class="channel-card">
+        <img src="assets/discover-removebg-preview.png" alt="Discovery">
+        <h3>Discovery</h3>
+        <p class="channel-desc">Catch your favorite dramas, reality shows, and entertainment programs all day long.</p>
+        <a href="home1.html" class="channel-btn">View Channel</a>
+      </div>
+      <div class="channel-card">
+        <img src="assets/nat-removebg-preview.png" alt="National Geographic">
+        <h3>Nat Geo</h3>
+        <p class="channel-desc">Catch your favorite dramas, reality shows, and entertainment programs all day long.</p>
+        <a href="home1.html" class="channel-btn">View Channel</a>
+      </div>
+      <div class="channel-card">
+        <img src="assets/bbc-removebg-preview.png" alt="National Geographic">
+        <h3>BBC News</h3>
+        <p class="channel-desc">Catch your favorite dramas, reality shows, and entertainment programs all day long.</p>
+        <a href="home1.html" class="channel-btn">View Channel</a>
+      </div>
+      <div class="channel-card">
+        <img src="assets/nd-removebg-preview.png" alt="National Geographic">
+        <h3>Nd News</h3>
+        <p class="channel-desc">Catch your favorite dramas, reality shows, and entertainment programs all day long.</p>
+        <a href="home1.html" class="channel-btn">View Channel</a>
+      </div>
+    </div>
+
+
+
+  </section>
+
+  <!-- section 3-->
+
+  <section class="trending-shows">
+    <h2>Trending Now</h2>
+    <p class="section-subtitle">What everyone’s watching right now</p>
+
+    <div class="trending-container">
+      <div class="show-card">
+        <img src="assets/miraclee.jpg" alt="Show 1">
+        <div class="show-info">
+          <h3>Miracle Planet</h3>
+          <a href="home1.html" class="watch-btn">Watch Now</a>
+        </div>
+      </div>
+
+      <div class="show-card">
+        <img src="assets/crime.jpg" alt="Show 2">
+        <div class="show-info">
+          <h3>Crime Stories</h3>
+          <a href="home1.html" class="watch-btn">Watch Now</a>
+        </div>
+      </div>
+
+      <div class="show-card">
+        <img src="assets/sport.jpg" alt="Show 3">
+        <div class="show-info">
+          <h3>World of Sports</h3>
+          <a href="home1.html" class="watch-btn">Watch Now</a>
+        </div>
+      </div>
+
+      <div class="show-card">
+        <img src="assets/wild.png" alt="Show 4">
+        <div class="show-info">
+          <h3>Wild Adventures</h3>
+          <a href="home1.html" class="watch-btn">Watch Now</a>
+        </div>
+      </div>
+
+      <div class="show-card">
+        <img src="assets/marina.jpg" alt="Show 5">
+        <div class="show-info">
+          <h3>Music Mania</h3>
+          <a href="home1.html" class="watch-btn">Watch Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <section class="showcase-section">
+    <h2>Trending Shows</h2>
+    <p class="section-subtitle">Watch the latest and most talked-about shows</p>
+
+    <div class="slider-container">
+      <div class="slider" id="slider">
+        <div class="slide">
+          <img src="assets/night drama.jpg" alt="Show 1">
+          <div class="slide-content">
+            <h3>The Night Drama</h3>
+            <p>Experience the thrill and mystery that keeps everyone talking.</p>
+            <a href="#" class="watch-btn">▶ Watch Now</a>
+          </div>
+        </div>
+
+        <div class="slide">
+          <img src="assets/love.jpg" alt="Show 2">
+          <div class="slide-content">
+            <h3>Love & Lies</h3>
+            <p>A heartwarming romantic story full of twists and secrets.</p>
+            <a href="#" class="watch-btn">▶ Watch Now</a>
+          </div>
+        </div>
+
+        <div class="slide">
+          <img src="assets/guns.jpg" alt="Show 3">
+          <div class="slide-content">
+            <h3>Action Reloaded</h3>
+            <p>Non-stop adrenaline and breathtaking stunts await you.</p>
+            <a href="#" class="watch-btn">▶ Watch Now</a>
+          </div>
+        </div>
+      </div>
+
+
+      <button class="nav-btn prev" id="prevBtn">❮</button>
+      <button class="nav-btn next" id="nextBtn">❯ </button>
+    </div>
+  </section>
+
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const slider = document.getElementById('slider');
+      const nextBtn = document.getElementById('nextBtn');
+      const prevBtn = document.getElementById('prevBtn');
+      const slides = document.querySelectorAll('.slide');
+      let index = 0;
+      let interval;
+
+      function showSlide(i) {
+        index = (i + slides.length) % slides.length;
+        slider.style.transform = `translateX(-${index * 100}%)`;
+      }
+
+      function nextSlide() { showSlide(index + 1); }
+      function prevSlide() { showSlide(index - 1); }
+
+      function startAutoSlide() { interval = setInterval(nextSlide, 2000); }
+      function stopAutoSlide() { clearInterval(interval); }
+
+      nextBtn.addEventListener('click', nextSlide);
+      prevBtn.addEventListener('click', prevSlide);
+
+      slider.addEventListener('mouseenter', stopAutoSlide);
+      slider.addEventListener('mouseleave', startAutoSlide);
+
+      startAutoSlide();
+    });
+  </script>
+
+  </section>
+  <!--section5-->
+
+  <section class="animated-text-showcase">
+    <div class="text-container">
+      <h2 class="animate-text">
+        Explore. <span>Watch.</span> Enjoy.
+      </h2>
+      <p class="animate-subtext">
+        Discover trending shows, live channels, and the latest entertainment – all in one place.
+      </p>
+      <a href="home1.html" class="explore-btn">Start Watching</a>
+    </div>
+  </section>
+
+  <!-- section 6-->
+
+  <section class="upcoming-premieres">
+    <h2>Upcoming Premieres</h2>
+    <p class="section-subtitle">Get ready for the most awaited shows and movies</p>
+
+    <div class="premiere-container">
+      <div class="premiere-card">
+        <div class="release-date">Nov 10</div>
+        <img src="assets/guns.jpg" alt="Premiere 1">
+        <div class="premiere-info">
+          <h3>Action Reloaded 2</h3>
+          <p>Gear up for non-stop thrills and powerful performances.</p>
+          <a href="#" class="remind-btn">🔔 Remind Me</a>
+        </div>
+      </div>
+
+      <div class="premiere-card">
+        <div class="release-date">Nov 15</div>
+        <img src="assets/romance.jpg" alt="Premiere 2">
+        <div class="premiere-info">
+          <h3>Love Beyond Time</h3>
+          <p>A timeless romantic journey that transcends generations.</p>
+          <a href="#" class="remind-btn">🔔 Remind Me</a>
+        </div>
+      </div>
+
+      <div class="premiere-card">
+        <div class="release-date">Nov 22</div>
+        <img src="assets/final destination.jpg" alt="Premiere 3">
+        <div class="premiere-info">
+          <h3>The Final Episode</h3>
+          <p>The ultimate conclusion to the decade’s most loved drama.</p>
+          <a href="#" class="remind-btn">🔔 Remind Me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- client review-->
+  <section class="testimonials">
+    <h2>What Our Viewers Say</h2>
+    <div class="testimonial-slider">
+      <div class="testimonial active">
+        <p>“This is the best online TV experience I’ve ever had! The channels are clear and streaming is smooth.”</p>
+        <h4>— David R.</h4>
+        <div class="stars">★★★★★</div>
+      </div>
+
+      <div class="testimonial">
+        <p>“The trending shows section keeps me hooked every evening. Absolutely love the interface!”</p>
+        <h4>— Sarah M.</h4>
+        <div class="stars">★★★★★</div>
+      </div>
+
+      <div class="testimonial">
+        <p>“Affordable plans and HD channels — feels like a premium experience without the price tag.”</p>
+        <h4>— John L.</h4>
+        <div class="stars">★★★★☆</div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    let current = 0;
+    const testimonials = document.querySelectorAll('.testimonial');
+
+    setInterval(() => {
+      testimonials[current].classList.remove('active');
+      current = (current + 1) % testimonials.length;
+      testimonials[current].classList.add('active');
+    }, 4000);
+  </script>
+  <!--section 6-->
+  <section class="pricing-section">
+    <h2 class="section-title">Our Plans</h2>
+    <p class="section-subtitle">Choose your perfect plan and start streaming your favorite shows.</p>
+
+    <div class="pricing-cards">
+      <div class="card">
+        <h3>Free</h3>
+        <p class="price">$0<span>/month</span></p>
+        <ul>
+          <li>✔ Access to basic channels</li>
+          <li>✔ 480p quality</li>
+          <li>✔ Ads included</li>
+        </ul>
+        <a href="#" class="btn">Start Free</a>
+      </div>
+
+      <div class="card featured">
+        <h3>Standard</h3>
+        <p class="price">$9.99<span>/month</span></p>
+        <ul>
+          <li>✔ 100+ channels</li>
+          <li>✔ HD Quality</li>
+          <li>✔ No Ads</li>
+        </ul>
+        <a href="#" class="btn">Get Started</a>
+      </div>
+
+      <div class="card">
+        <h3>Premium</h3>
+        <p class="price">$14.99<span>/month</span></p>
+        <ul>
+          <li>✔ All channels unlocked</li>
+          <li>✔ 4K Ultra HD</li>
+          <li>✔ Offline access</li>
+        </ul>
+        <a href="#" class="btn">Go Premium</a>
+      </div>
+    </div>
+  </section>
+
+ 
+
+  <!--footer-->
+
+  <footer class="tv-footer">
+    <div class="footer-content">
+
+      <!-- 1. About Section -->
+      <div class="footer-section about">
+        <img src="assets/logo1.png" alt="Stackly Television Logo" class="footer-logo" />
+        <p>
+          <strong>Stackly Television</strong> is your ultimate destination for entertainment — featuring trending
+          dramas, movies, talk shows, news, and exclusive originals. We redefine how you experience TV by bringing
+          the world’s best content to your screens.
+        </p>
+      </div>
+
+      <!-- 2. Quick Links -->
+      <div class="footer-section links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="channels.html">Channels</a></li>
+          <li><a href="shows.html">Shows</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- 3. Trending Categories -->
+      <div class="footer-section categories">
+        <h3>Trending Categories</h3>
+        <ul>
+          <li>Reality TV</li>
+          <li>Daily Soaps</li>
+          <li>Blockbuster Movies</li>
+          <li>Sports Highlights</li>
+          <li>Kids & Family</li>
+          <li>Documentaries</li>
+        </ul>
+      </div>
+
+      <!-- 4. Download App -->
+      <div class="footer-section download">
+        <h3>Get Our App</h3>
+        <p>Stream anywhere, anytime with the Stackly TV mobile app.</p>
+        <div class="app-buttons">
+          <a href="404.html" class="app-store"><i class="fab fa-google-play"></i> Google Play</a>
+          <a href="404.html" class="app-store"><i class="fab fa-apple"></i> App Store</a>
+        </div>
+        <p class="qr-note">Scan QR to download</p>
+        <img src="assets/qr" alt="QR Code" class="qr-image" />
+      </div>
+    </div>
+
+    <!-- Stay Connected (Moved Down) -->
+    <div class="footer-connect">
+      <h3>Stay Connected</h3>
+      <p>
+        Join our community for exclusive updates, behind-the-scenes stories, and upcoming show alerts.
+      </p>
+      <form class="newsletter-form" action="404.html" method="get">
+        <input type="email" placeholder="Enter your email" required />
+        <button type="submit">Subscribe</button>
+      </form>
+
+      <div class="social-icons">
+        <a href="404.html"><i class="fab fa-facebook-f"></i></a>
+        <a href="404.html"><i class="fab fa-twitter"></i></a>
+        <a href="404.html"><i class="fab fa-youtube"></i></a>
+        <a href="404.html"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>&copy; 2025 Stackly Television. All Rights Reserved. |
+        <a href="404.html">Privacy Policy</a> |
+        <a href="404.html">Terms of Service</a> |
+        <a href="404.html">Cookie Policy</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
