@@ -1,111 +1,48 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Television Website</title>
+  <title>Login - TV Website</title>
   <link rel="stylesheet" href="css/login.css">
 </head>
 
 <body>
+  <!-- Back to Home Button -->
+  <a href="index.html" class="back-home">← Back to Home</a>
 
-  <!-- ===== Navbar Start ===== -->
-    <!-- ===== Navbar Start ===== -->
-  <nav class="navbar">
-    <div class="logo">
-      <img src="assets/logo1.png" alt="Logo" />
+  <!-- Login Modal -->
+  <div class="login-overlay" id="loginOverlay">
+    <div class="login-card">
+      <h2 class="login-title">Welcome Back</h2>
+      <p class="login-subtitle">Log in to access your favorite shows and exclusive content instantly.</p>
+
+      <form id="loginForm">
+        <input type="email" placeholder="Email Address" required>
+        <input type="password" placeholder="Password" required>
+      
+        <p class="forgot-password"><a href="#" id="forgotPassword">Forgot Password?</a></p>
+
+        <button type="submit" class="login-btn">Login</button>
+      </form>
     </div>
-
-    <div class="hamburger" id="hamburger">☰</div>
-
-    <ul class="nav-links" id="navLinks">
-      <li class="dropdown">
-        <a href="index.html">Home ▾</a>
-        <ul class="dropdown-menu">
-          <li><a href="home1.html">Home1</a></li>
-        </ul>
-      </li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="products.html">Products</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="dashboard.html">Dashboard</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="login.html" class="login-btn">Login</a></li>
-    </ul>
-  </nav>
-  <!-- ===== Navbar End ===== -->
+  </div>
 
   <script>
-  const hamburger = document.getElementById("hamburger");
-  const navLinks = document.getElementById("navLinks");
-  const dropdowns = document.querySelectorAll(".dropdown");
+    // Show login overlay on page load
+    const overlay = document.getElementById('loginOverlay');
+    overlay.classList.add('active');
 
-  // --- Toggle mobile menu ---
-  hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-    hamburger.textContent = navLinks.classList.contains("active") ? "✖" : "☰";
-  });
-
-  // --- Desktop dropdown hover behavior ---
-  document.querySelectorAll(".dropdown").forEach((drop) => {
-    let hideTimeout;
-    const menu = drop.querySelector(".dropdown-menu");
-
-    drop.addEventListener("mouseenter", () => {
-      if (window.innerWidth > 768) {
-        clearTimeout(hideTimeout);
-        menu.style.display = "block";
-        setTimeout(() => {
-          menu.style.opacity = "1";
-          menu.style.visibility = "visible";
-          menu.style.transform = "translateY(0)";
-        }, 50);
-      }
+    // Handle form submit
+    const loginForm = document.getElementById('loginForm');
+    loginForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      // After login, redirect to 404 page
+      window.location.href = "404.html";
     });
 
-    drop.addEventListener("mouseleave", () => {
-      if (window.innerWidth > 768) {
-        hideTimeout = setTimeout(() => {
-          menu.style.opacity = "0";
-          menu.style.visibility = "hidden";
-          menu.style.transform = "translateY(10px)";
-          setTimeout(() => {
-            menu.style.display = "none";
-          }, 200);
-        }, 300);
-      }
-    });
-  });
-
-  // --- Mobile dropdown toggle ---
-  dropdowns.forEach((drop) => {
-    drop.addEventListener("click", (e) => {
-      if (window.innerWidth <= 768) {
-        const target = e.target;
-        const menu = drop.querySelector(".dropdown-menu");
-
-        // if clicking on the parent "Home" link
-        if (target.closest(".dropdown > a")) {
-          e.preventDefault(); // only prevent when opening dropdown
-          drop.classList.toggle("active");
-
-          // close others
-          document.querySelectorAll(".dropdown").forEach((other) => {
-            if (other !== drop) other.classList.remove("active");
-          });
-        } 
-        // if clicking on inner dropdown item (Home1)
-        else if (target.closest(".dropdown-menu a")) {
-          const href = target.getAttribute("href");
-          if (href) window.location.href = href; // ✅ allow navigation
-        }
-      }
-    });
-  });
-</script>
+  </script>
 </body>
 
 </html>

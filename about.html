@@ -11,7 +11,7 @@
 <body>
 
   <!-- ===== Navbar Start ===== -->
-    <!-- ===== Navbar Start ===== -->
+  <!-- ===== Navbar Start ===== -->
   <nav class="navbar">
     <div class="logo">
       <img src="assets/logo1.png" alt="Logo" />
@@ -27,8 +27,8 @@
         </ul>
       </li>
       <li><a href="about.html">About</a></li>
-      <li><a href="products.html">Products</a></li>
-      <li><a href="services.html">Services</a></li>
+      <li><a href="tv.html">TV shows</a></li>
+
       <li><a href="dashboard.html">Dashboard</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="login.html" class="login-btn">Login</a></li>
@@ -37,73 +37,280 @@
   <!-- ===== Navbar End ===== -->
 
   <script>
-  const hamburger = document.getElementById("hamburger");
-  const navLinks = document.getElementById("navLinks");
-  const dropdowns = document.querySelectorAll(".dropdown");
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
+    const dropdowns = document.querySelectorAll(".dropdown");
 
-  // --- Toggle mobile menu ---
-  hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-    hamburger.textContent = navLinks.classList.contains("active") ? "✖" : "☰";
-  });
-
-  // --- Desktop dropdown hover behavior ---
-  document.querySelectorAll(".dropdown").forEach((drop) => {
-    let hideTimeout;
-    const menu = drop.querySelector(".dropdown-menu");
-
-    drop.addEventListener("mouseenter", () => {
-      if (window.innerWidth > 768) {
-        clearTimeout(hideTimeout);
-        menu.style.display = "block";
-        setTimeout(() => {
-          menu.style.opacity = "1";
-          menu.style.visibility = "visible";
-          menu.style.transform = "translateY(0)";
-        }, 50);
-      }
+    // --- Toggle mobile menu ---
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      hamburger.textContent = navLinks.classList.contains("active") ? "✖" : "☰";
     });
 
-    drop.addEventListener("mouseleave", () => {
-      if (window.innerWidth > 768) {
-        hideTimeout = setTimeout(() => {
-          menu.style.opacity = "0";
-          menu.style.visibility = "hidden";
-          menu.style.transform = "translateY(10px)";
+    // --- Desktop dropdown hover behavior ---
+    document.querySelectorAll(".dropdown").forEach((drop) => {
+      let hideTimeout;
+      const menu = drop.querySelector(".dropdown-menu");
+
+      drop.addEventListener("mouseenter", () => {
+        if (window.innerWidth > 768) {
+          clearTimeout(hideTimeout);
+          menu.style.display = "block";
           setTimeout(() => {
-            menu.style.display = "none";
-          }, 200);
-        }, 300);
-      }
-    });
-  });
-
-  // --- Mobile dropdown toggle ---
-  dropdowns.forEach((drop) => {
-    drop.addEventListener("click", (e) => {
-      if (window.innerWidth <= 768) {
-        const target = e.target;
-        const menu = drop.querySelector(".dropdown-menu");
-
-        // if clicking on the parent "Home" link
-        if (target.closest(".dropdown > a")) {
-          e.preventDefault(); // only prevent when opening dropdown
-          drop.classList.toggle("active");
-
-          // close others
-          document.querySelectorAll(".dropdown").forEach((other) => {
-            if (other !== drop) other.classList.remove("active");
-          });
-        } 
-        // if clicking on inner dropdown item (Home1)
-        else if (target.closest(".dropdown-menu a")) {
-          const href = target.getAttribute("href");
-          if (href) window.location.href = href; // ✅ allow navigation
+            menu.style.opacity = "1";
+            menu.style.visibility = "visible";
+            menu.style.transform = "translateY(0)";
+          }, 50);
         }
-      }
+      });
+
+      drop.addEventListener("mouseleave", () => {
+        if (window.innerWidth > 768) {
+          hideTimeout = setTimeout(() => {
+            menu.style.opacity = "0";
+            menu.style.visibility = "hidden";
+            menu.style.transform = "translateY(10px)";
+            setTimeout(() => {
+              menu.style.display = "none";
+            }, 200);
+          }, 300);
+        }
+      });
     });
-  });
-</script>
+
+    // --- Mobile dropdown toggle ---
+    dropdowns.forEach((drop) => {
+      drop.addEventListener("click", (e) => {
+        if (window.innerWidth <= 768) {
+          const target = e.target;
+          const menu = drop.querySelector(".dropdown-menu");
+
+          // if clicking on the parent "Home" link
+          if (target.closest(".dropdown > a")) {
+            e.preventDefault(); // only prevent when opening dropdown
+            drop.classList.toggle("active");
+
+            // close others
+            document.querySelectorAll(".dropdown").forEach((other) => {
+              if (other !== drop) other.classList.remove("active");
+            });
+          }
+          // if clicking on inner dropdown item (Home1)
+          else if (target.closest(".dropdown-menu a")) {
+            const href = target.getAttribute("href");
+            if (href) window.location.href = href; // ✅ allow navigation
+          }
+        }
+      });
+    });
+  </script>
+  <!-- section-->
+  <section class="hero-about">
+    <div class="hero-content">
+      <h1 class="hero-title">About Us</h1>
+      <p class="hero-subtext">Discover the story behind our TV platform and what makes us unique.</p>
+      <a href="#about-section" class="explore-btn">Learn More</a>
+    </div>
+    <div class="overlay"></div>
+  </section>
+  <!-- about section-->
+  <section class="about-story">
+    <div class="story-content">
+      <h2>Our Story</h2>
+      <p>
+        Step inside the world of television magic. From humble beginnings to creating content that captivates millions,
+        our journey is filled with passion, creativity, and dedication.
+      </p>
+      <p>
+        Every show has a story, every frame a vision. We aim to bring you closer to the behind-the-scenes magic of
+        television.
+      </p>
+    </div>
+
+    <div class="story-image">
+      <img src="assets/about bts.jpg" alt="Studio Behind the Scenes">
+    </div>
+  </section>
+  <!-- section3-->
+
+  <section class="featured-shows">
+    <div class="container">
+      <h2 class="section-title">BEHIND THE SCENES <br>OF YOUR FAVORITE SHOWS</h2>
+
+      <div class="show-cards">
+        <div class="show-card">
+          <img src="assets/script" alt="Show 1">
+          <h3>Creative Minds at Work</h3>
+          <p>“Our writers and creative team brainstorm, draft, and refine every storyline with precision. From initial
+            ideas to fully developed scripts, they craft compelling narratives that keep viewers engaged ."</p>
+        </div>
+
+        <div class="show-card">
+          <img src="assets/behind" alt="Show 2">
+          <h3>Post-Production Excellence</h3>
+          <p>“Every scene goes through meticulous post-production, where our editors, sound designers, and visual
+            effects artists refine each frame.”</p>
+        </div>
+
+        <div class="show-card">
+          <img src="assets/on set magic.avif" alt="Show 3">
+          <h3>On set Magic</h3>
+          <p>“Our crew brings every scene to life with precision and passion. From camera angles to lighting and
+            performance direction, each element is carefully orchestrated to create moments .”</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- section4-->
+  <section class="vision-mission">
+    <div class="container">
+      <h2 class="section-title">Our Vision & Mission</h2>
+      <div class="vm-content">
+        <div class="vm-card">
+          <h3>Our Vision</h3>
+          <p>To create compelling and engaging television content that entertains, inspires, and connects with audiences
+            worldwide.</p>
+        </div>
+        <div class="vm-card">
+          <h3>Our Mission</h3>
+          <p>To combine creativity, technology, and storytelling excellence to produce high-quality shows that leave a
+            lasting impact on viewers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- secction5-->
+  <section class="faq-section">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <button class="faq-question">1. How can I access and stream all of your television shows online?</button>
+        <div class="faq-answer">
+          <p>You can watch all our shows directly on our website by creating a free account. Premium content may require
+            a subscription plan for uninterrupted streaming.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">2. Do you release new episodes every week for all your shows?</button>
+        <div class="faq-answer">
+          <p>Yes, most of our shows release new episodes weekly. You can check the schedule on each show’s page to know the exact release dates and times.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">3. Is it possible for viewers to suggest new show ideas or storylines?</button>
+        <div class="faq-answer">
+          <p>Absolutely! We value our viewers' input and encourage you to submit your ideas through our "Contact Us" page. Our team reviews suggestions regularly.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">4. Are there any subscription fees to access exclusive shows and content?</button>
+        <div class="faq-answer">
+          <p>Some of our content is free to watch, while exclusive or premium shows require a subscription. Visit our subscription plans page for detailed pricing information.</p>
+        </div>
+      </div>
+      
+    
+    </div>
+    <script>
+      const faqQuestions = document.querySelectorAll('.faq-question');
+
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const answer = question.nextElementSibling;
+          question.classList.toggle('active');
+          answer.classList.toggle('open');
+        });
+      });
+    </script>
+
+  </section>
+  <!--footer-->
+ <footer class="tv-footer">
+    <div class="footer-content">
+
+      <!-- 1. About Section -->
+      <div class="footer-section about">
+        <img src="assets/logo1.png" alt="Stackly Television Logo" class="footer-logo" />
+        <p>
+          <strong>Stackly Television</strong> is your ultimate destination for entertainment — featuring trending
+          dramas, movies, talk shows, news, and exclusive originals. We redefine how you experience TV by bringing
+          the world’s best content to your screens.
+        </p>
+      </div>
+
+      <!-- 2. Quick Links -->
+      <div class="footer-section links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="channels.html">Channels</a></li>
+          <li><a href="shows.html">Shows</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- 3. Trending Categories -->
+      <div class="footer-section categories">
+        <h3>Trending Categories</h3>
+        <ul>
+          <li>Reality TV</li>
+          <li>Daily Soaps</li>
+          <li>Blockbuster Movies</li>
+          <li>Sports Highlights</li>
+          <li>Kids & Family</li>
+          <li>Documentaries</li>
+        </ul>
+      </div>
+
+      <!-- 4. Download App -->
+      <div class="footer-section download">
+        <h3>Get Our App</h3>
+        <p>Stream anywhere, anytime with the Stackly TV mobile app.</p>
+        <div class="app-buttons">
+          <a href="404.html" class="app-store"><i class="fab fa-google-play"></i> Google Play</a>
+          <a href="404.html" class="app-store"><i class="fab fa-apple"></i> App Store</a>
+        </div>
+        <p class="qr-note">Scan QR to download</p>
+        <img src="assets/qr" alt="QR Code" class="qr-image" />
+      </div>
+    </div>
+
+    <!-- Stay Connected (Moved Down) -->
+    <div class="footer-connect">
+      <h3>Stay Connected</h3>
+      <p>
+        Join our community for exclusive updates, behind-the-scenes stories, and upcoming show alerts.
+      </p>
+      <form class="newsletter-form" action="404.html" method="get">
+        <input type="email" placeholder="Enter your email" required />
+        <button type="submit">Subscribe</button>
+      </form>
+
+      <div class="social-icons">
+        <a href="404.html"><i class="fab fa-facebook-f"></i></a>
+        <a href="404.html"><i class="fab fa-twitter"></i></a>
+        <a href="404.html"><i class="fab fa-youtube"></i></a>
+        <a href="404.html"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>&copy; 2025 Stackly Television. All Rights Reserved. |
+        <a href="404.html">Privacy Policy</a> |
+        <a href="404.html">Terms of Service</a> |
+        <a href="404.html">Cookie Policy</a>
+      </p>
+    </div>
+  </footer>
+
+
 </body>
 
 </html>
