@@ -104,6 +104,205 @@
       });
     });
   </script>
+  <!-- section 1-->
+   
+
+  <section class="tv-hero">
+    <div class="hero-content">
+      <h1>Our Popular TV Shows</h1>
+      <p>Step into the world of entertainment — from heartwarming dramas to edge-of-the-seat thrillers, our shows bring stories to life like never before.</p>
+      <a href="#shows" class="explore-btn">Explore Now</a>
+    </div>
+  </section>
+
+<!-- section2-->
+ <section id="shows" class="tv-shows">
+  <h2 class="section-title">Trending Shows</h2>
+  <div class="shows-grid">
+    <div class="show-card">
+      <img src="assets/tv sho pic1" alt="Mystery Nights">
+      <h3>Mystery Nights</h3>
+      <p>A thrilling drama unraveling secrets hidden beneath city lights.</p>
+    </div>
+
+    <div class="show-card">
+      <img src="assets/star late" alt="Star Tales">
+      <h3>Star Tales</h3>
+      <p>An inspiring journey through the world of fame, dreams, and heartbreaks.</p>
+    </div>
+
+    <div class="show-card">
+      <img src="assets/retro" alt="Retro Rewind">
+      <h3>Retro Rewind</h3>
+      <p>Step back into the golden era of entertainment and nostalgia.</p>
+    </div>
+  </div>
+</section>
+
+<!--section3-->
+<section class="featured-show">
+  <div class="featured-bg">
+    <img src="assets/about bts.jpg" alt="Star Tales Studio Setup">
+  </div>
+
+  <div class="featured-content">
+    <h2 class="featured-title">⭐ Star Tales</h2>
+    <p class="featured-desc">
+      Step behind the lights and cameras to explore unseen stories and magical moments from our studio floors.
+    </p>
+    <a href="#" class="watch-btn">Watch Now</a>
+  </div>
+</section>
+
+<!--section4-->
+<!-- Section 4: Coming Soon -->
+<section class="coming-soon">
+  <div class="coming-soon-header">
+    <h2>Coming Soon</h2>
+    <p>Get ready for our next big releases</p>
+  </div>
+
+  <div class="coming-soon-container">
+    <div class="show-card">
+      <img src="assets/city" alt="Upcoming Show 1">
+      <h3>Echoes of Tomorrow</h3>
+    </div>
+    <div class="show-card">
+      <img src="assets/love.jpg" alt="Upcoming Show 2">
+      <h3>Neon Nights</h3>
+    </div>
+    <div class="show-card">
+      <img src="assets/final destination.jpg" alt="Upcoming Show 3">
+      <h3>Midnight Waves</h3>
+    </div>
+    <div class="show-card">
+      <img src="assets/crime.jpg" alt="Upcoming Show 4">
+      <h3>Parallel Dreams</h3>
+    </div>
+    <div class="show-card">
+      <img src="assets/guns.jpg" alt="Upcoming Show 5">
+      <h3>Shadow Circuit</h3>
+    </div>
+  </div>
+</section>
+<!-- section5-->
+ <section class="subscribe-section">
+  <div class="subscribe-content">
+    <h2>🌟 Join Our Community</h2>
+    <p>Stay updated with the latest shows and exclusive content.</p>
+
+    <form id="subscribe-form">
+      <input type="email" id="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+    <p id="subscribe-msg" class="subscribe-msg"></p>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById("subscribe-form");
+const emailInput = document.getElementById("email");
+const msg = document.getElementById("subscribe-msg");
+
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+  
+  const email = emailInput.value.trim();
+
+  // Simple email validation regex
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if(emailRegex.test(email)){
+    msg.textContent = "✅ Thank you for subscribing!";
+    msg.style.color = "#90ee90";
+    emailInput.value = "";
+  } else {
+    msg.textContent = "⚠️ Please enter a valid email!";
+    msg.style.color = "#ff6b6b";
+  }
+});
+</script>
+<!--footer-->
+<footer class="tv-footer">
+    <div class="footer-content">
+
+      <!-- 1. About Section -->
+      <div class="footer-section about">
+        <img src="assets/logo1.png" alt="Stackly Television Logo" class="footer-logo" />
+        <p>
+          <strong>Stackly Television</strong> is your ultimate destination for entertainment — featuring trending
+          dramas, movies, talk shows, news, and exclusive originals. We redefine how you experience TV by bringing
+          the world’s best content to your screens.
+        </p>
+      </div>
+
+      <!-- 2. Quick Links -->
+      <div class="footer-section links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="channels.html">Channels</a></li>
+          <li><a href="shows.html">Shows</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- 3. Trending Categories -->
+      <div class="footer-section categories">
+        <h3>Trending Categories</h3>
+        <ul>
+          <li>Reality TV</li>
+          <li>Daily Soaps</li>
+          <li>Blockbuster Movies</li>
+          <li>Sports Highlights</li>
+          <li>Kids & Family</li>
+          <li>Documentaries</li>
+        </ul>
+      </div>
+
+      <!-- 4. Download App -->
+      <div class="footer-section download">
+        <h3>Get Our App</h3>
+        <p>Stream anywhere, anytime with the Stackly TV mobile app.</p>
+        <div class="app-buttons">
+          <a href="404.html" class="app-store"><i class="fab fa-google-play"></i> Google Play</a>
+          <a href="404.html" class="app-store"><i class="fab fa-apple"></i> App Store</a>
+        </div>
+        <p class="qr-note">Scan QR to download</p>
+        <img src="assets/qr" alt="QR Code" class="qr-image" />
+      </div>
+    </div>
+
+    <!-- Stay Connected (Moved Down) -->
+    <div class="footer-connect">
+      <h3>Stay Connected</h3>
+      <p>
+        Join our community for exclusive updates, behind-the-scenes stories, and upcoming show alerts.
+      </p>
+      <form class="newsletter-form" action="404.html" method="get">
+        <input type="email" placeholder="Enter your email" required />
+        <button type="submit">Subscribe</button>
+      </form>
+
+      <div class="social-icons">
+        <a href="404.html"><i class="fab fa-facebook-f"></i></a>
+        <a href="404.html"><i class="fab fa-twitter"></i></a>
+        <a href="404.html"><i class="fab fa-youtube"></i></a>
+        <a href="404.html"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>&copy; 2025 Stackly Television. All Rights Reserved. |
+        <a href="404.html">Privacy Policy</a> |
+        <a href="404.html">Terms of Service</a> |
+        <a href="404.html">Cookie Policy</a>
+      </p>
+    </div>
+  </footer>
+
 </body>
 
 </html>

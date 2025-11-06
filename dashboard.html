@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Television Website</title>
-  <link rel="stylesheet" href="css/contact.css">
+  <link rel="stylesheet" href="css/dashboard.css">
 </head>
 
 <body>
@@ -105,6 +105,150 @@
     });
   });
 </script>
+<!--section1-->
+
+<!-- Dashboard Section -->
+<section class="dashboard-section">
+  <div class="dashboard-header">
+    <h2>📊 TV Shows Dashboard</h2>
+    <p>Track show stats, viewership trends, and upcoming releases.</p>
+  </div>
+
+  <!-- Stats Cards -->
+  <div class="stats-cards">
+    <div class="card">
+      <h3>Total Shows</h3>
+      <p class="stat-number">120</p>
+    </div>
+    <div class="card">
+      <h3>New Releases</h3>
+      <p class="stat-number">15</p>
+    </div>
+    <div class="card">
+      <h3>Popular Shows</h3>
+      <p class="stat-number">25</p>
+    </div>
+    <div class="card">
+      <h3>Coming Soon</h3>
+      <p class="stat-number">8</p>
+    </div>
+  </div>
+
+  <!-- Charts -->
+  <div class="charts-container">
+    <div class="chart-card">
+      <canvas id="barChart"></canvas>
+    </div>
+    <div class="chart-card">
+      <canvas id="pieChart"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- Include Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Dashboard JS -->
+<script>
+  // Bar Chart
+  const barCtx = document.getElementById('barChart').getContext('2d');
+  const barChart = new Chart(barCtx, {
+    type: 'bar',
+    data: {
+      labels: ['Action', 'Drama', 'Comedy', 'Sci-Fi', 'Fantasy', 'Thriller'],
+      datasets: [{
+        label: 'Number of Shows',
+        data: [20, 30, 25, 15, 20, 10],
+        backgroundColor: [
+          '#facc15', '#ff6b6b', '#6bcfff', '#8aff7b', '#ff9de3', '#ffa500'
+        ],
+        borderRadius: 5,
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: { enabled: true }
+      },
+      scales: {
+        y: { beginAtZero: true }
+      }
+    }
+  });
+
+  // Pie Chart
+  const pieCtx = document.getElementById('pieChart').getContext('2d');
+  const pieChart = new Chart(pieCtx, {
+    type: 'pie',
+    data: {
+      labels: ['Watched', 'Unwatched', 'In Progress'],
+      datasets: [{
+        data: [60, 25, 15],
+        backgroundColor: ['#facc15', '#6bcfff', '#ff6b6b']
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'bottom' },
+        tooltip: { enabled: true }
+      }
+    }
+  });
+</script>
+<!-- section3-->
+ <!-- Dashboard Quick Actions Section -->
+<section class="dashboard-actions">
+  <div class="actions-header">
+    <h2>⚡ Quick Actions</h2>
+    <p>Manage shows and analytics with a single click.</p>
+  </div>
+
+  <div class="actions-cards">
+    <div class="action-card" onclick="alert('Add New Show')">
+      <h3>➕ Add New Show</h3>
+    </div>
+    <div class="action-card" onclick="alert('Mark as Watched')">
+      <h3>✅ Mark as Watched</h3>
+    </div>
+    <div class="action-card" onclick="alert('Filter Shows')">
+      <h3>🔍 Filter Shows</h3>
+    </div>
+    <div class="action-card" onclick="alert('View Reports')">
+      <h3>📈 View Reports</h3>
+    </div>
+  </div>
+</section>
+<!-- section4-->
+<!-- Recent Activity Section -->
+<section class="dashboard-activity">
+  <div class="activity-header">
+    <h2>📋 Recent Activity</h2>
+    <p>Keep track of user actions and show updates in real-time.</p>
+  </div>
+
+  <div class="activity-list">
+    <div class="activity-card">
+      <p>🟢 John Doe subscribed to "Star Tales"</p>
+      <span>2 mins ago</span>
+    </div>
+    <div class="activity-card">
+      <p>🔔 New episode of "Galaxy Wars" released</p>
+      <span>10 mins ago</span>
+    </div>
+    <div class="activity-card">
+      <p>✅ Marked "Fantasy World" as watched</p>
+      <span>30 mins ago</span>
+    </div>
+    <div class="activity-card">
+      <p>📝 Jane Smith commented on "Star Tales"</p>
+      <span>1 hour ago</span>
+    </div>
+  </div>
+</section>
+
+
 </body>
 
 </html>

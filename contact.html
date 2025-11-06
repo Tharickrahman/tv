@@ -11,7 +11,7 @@
 <body>
 
   <!-- ===== Navbar Start ===== -->
-   <!-- ===== Navbar Start ===== -->
+  <!-- ===== Navbar Start ===== -->
   <nav class="navbar">
     <div class="logo">
       <img src="assets/logo1.png" alt="Logo" />
@@ -28,7 +28,7 @@
       </li>
       <li><a href="about.html">About</a></li>
       <li><a href="tv.html">TV shows</a></li>
-      
+
       <li><a href="dashboard.html">Dashboard</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="login.html" class="login-btn">Login</a></li>
@@ -37,76 +37,236 @@
   <!-- ===== Navbar End ===== -->
 
   <script>
-  const hamburger = document.getElementById("hamburger");
-  const navLinks = document.getElementById("navLinks");
-  const dropdowns = document.querySelectorAll(".dropdown");
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
+    const dropdowns = document.querySelectorAll(".dropdown");
 
-  // --- Toggle mobile menu ---
-  hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-    hamburger.textContent = navLinks.classList.contains("active") ? "✖" : "☰";
-  });
-
-  // --- Desktop dropdown hover behavior ---
-  document.querySelectorAll(".dropdown").forEach((drop) => {
-    let hideTimeout;
-    const menu = drop.querySelector(".dropdown-menu");
-
-    drop.addEventListener("mouseenter", () => {
-      if (window.innerWidth > 768) {
-        clearTimeout(hideTimeout);
-        menu.style.display = "block";
-        setTimeout(() => {
-          menu.style.opacity = "1";
-          menu.style.visibility = "visible";
-          menu.style.transform = "translateY(0)";
-        }, 50);
-      }
+    // --- Toggle mobile menu ---
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      hamburger.textContent = navLinks.classList.contains("active") ? "✖" : "☰";
     });
 
-    drop.addEventListener("mouseleave", () => {
-      if (window.innerWidth > 768) {
-        hideTimeout = setTimeout(() => {
-          menu.style.opacity = "0";
-          menu.style.visibility = "hidden";
-          menu.style.transform = "translateY(10px)";
+    // --- Desktop dropdown hover behavior ---
+    document.querySelectorAll(".dropdown").forEach((drop) => {
+      let hideTimeout;
+      const menu = drop.querySelector(".dropdown-menu");
+
+      drop.addEventListener("mouseenter", () => {
+        if (window.innerWidth > 768) {
+          clearTimeout(hideTimeout);
+          menu.style.display = "block";
           setTimeout(() => {
-            menu.style.display = "none";
-          }, 200);
-        }, 300);
-      }
-    });
-  });
-
-  // --- Mobile dropdown toggle ---
-  dropdowns.forEach((drop) => {
-    drop.addEventListener("click", (e) => {
-      if (window.innerWidth <= 768) {
-        const target = e.target;
-        const menu = drop.querySelector(".dropdown-menu");
-
-        // if clicking on the parent "Home" link
-        if (target.closest(".dropdown > a")) {
-          e.preventDefault(); // only prevent when opening dropdown
-          drop.classList.toggle("active");
-
-          // close others
-          document.querySelectorAll(".dropdown").forEach((other) => {
-            if (other !== drop) other.classList.remove("active");
-          });
-        } 
-        // if clicking on inner dropdown item (Home1)
-        else if (target.closest(".dropdown-menu a")) {
-          const href = target.getAttribute("href");
-          if (href) window.location.href = href; // ✅ allow navigation
+            menu.style.opacity = "1";
+            menu.style.visibility = "visible";
+            menu.style.transform = "translateY(0)";
+          }, 50);
         }
+      });
+
+      drop.addEventListener("mouseleave", () => {
+        if (window.innerWidth > 768) {
+          hideTimeout = setTimeout(() => {
+            menu.style.opacity = "0";
+            menu.style.visibility = "hidden";
+            menu.style.transform = "translateY(10px)";
+            setTimeout(() => {
+              menu.style.display = "none";
+            }, 200);
+          }, 300);
+        }
+      });
+    });
+
+    // --- Mobile dropdown toggle ---
+    dropdowns.forEach((drop) => {
+      drop.addEventListener("click", (e) => {
+        if (window.innerWidth <= 768) {
+          const target = e.target;
+          const menu = drop.querySelector(".dropdown-menu");
+
+          // if clicking on the parent "Home" link
+          if (target.closest(".dropdown > a")) {
+            e.preventDefault(); // only prevent when opening dropdown
+            drop.classList.toggle("active");
+
+            // close others
+            document.querySelectorAll(".dropdown").forEach((other) => {
+              if (other !== drop) other.classList.remove("active");
+            });
+          }
+          // if clicking on inner dropdown item (Home1)
+          else if (target.closest(".dropdown-menu a")) {
+            const href = target.getAttribute("href");
+            if (href) window.location.href = href; // ✅ allow navigation
+          }
+        }
+      });
+    });
+  </script>
+  <!-- ===== section 1===== -->
+  <!-- Contact Page -->
+
+  <!-- Contact Page Hero Section -->
+
+  <!-- Hero Section -->
+  <section class="contact-hero">
+    <div class="hero-content">
+      <h1>📨 Contact Us</h1>
+      <p>We at Stackly Television are dedicated to bringing you the best shows and entertainment experience. Reach out
+        to us for queries, suggestions, or collaborations!</p>
+    </div>
+  </section>
+
+  <!-- Form Section -->
+  <section class="contact-form-section">
+    <div class="form-header">
+      <h2>Send Us a Message</h2>
+      <p>Fill out the form below and we’ll get back to you as soon as possible.</p>
+    </div>
+
+    <form id="contact-form" class="contact-form">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <input type="text" id="subject" placeholder="Subject" required>
+      <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+      <p id="form-msg"></p>
+    </form>
+  </section>
+
+  <!-- JS for form validation -->
+  <script>
+    const form = document.getElementById('contact-form');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const subjectInput = document.getElementById('subject');
+    const messageInput = document.getElementById('message');
+    const msg = document.getElementById('form-msg');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const subject = subjectInput.value.trim();
+      const message = messageInput.value.trim();
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!name || !email || !subject || !message) {
+        msg.textContent = "⚠️ Please fill all fields!";
+        msg.style.color = "#ff6b6b";
+      } else if (!emailRegex.test(email)) {
+        msg.textContent = "⚠️ Please enter a valid email!";
+        msg.style.color = "#ff6b6b";
+      } else {
+        msg.textContent = "✅ Message sent successfully!";
+        msg.style.color = "#90ee90";
+        form.reset();
       }
     });
-  });
-</script>
-  <!-- ===== Navbar End ===== -->
+  </script>
+  <!--map section-->
+  <!-- Studio Location Section -->
+  <section class="studio-location">
+    <div class="location-header">
+      <h2>📍 Our Studio</h2>
+      <p>Visit us or get in touch with our team at Stackly Television headquarters.</p>
+    </div>
 
-  
+    <div class="location-container">
+      <!-- Map iframe -->
+
+      <!-- Studio Map Section -->
+      <section class="studio-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.2799145286!2d-74.25987368712862!3d40.69767006371671!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c250b0d8d1b791%3A0xfce784f5f13d0b90!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sin!4v1599267612345!5m2!1sen!2sin"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+      </section>
+
+    </div>
+  </section>
+<footer class="tv-footer">
+    <div class="footer-content">
+
+      <!-- 1. About Section -->
+      <div class="footer-section about">
+        <img src="assets/logo1.png" alt="Stackly Television Logo" class="footer-logo" />
+        <p>
+          <strong>Stackly Television</strong> is your ultimate destination for entertainment — featuring trending
+          dramas, movies, talk shows, news, and exclusive originals. We redefine how you experience TV by bringing
+          the world’s best content to your screens.
+        </p>
+      </div>
+
+      <!-- 2. Quick Links -->
+      <div class="footer-section links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="channels.html">Channels</a></li>
+          <li><a href="shows.html">Shows</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- 3. Trending Categories -->
+      <div class="footer-section categories">
+        <h3>Trending Categories</h3>
+        <ul>
+          <li>Reality TV</li>
+          <li>Daily Soaps</li>
+          <li>Blockbuster Movies</li>
+          <li>Sports Highlights</li>
+          <li>Kids & Family</li>
+          <li>Documentaries</li>
+        </ul>
+      </div>
+
+      <!-- 4. Download App -->
+      <div class="footer-section download">
+        <h3>Get Our App</h3>
+        <p>Stream anywhere, anytime with the Stackly TV mobile app.</p>
+        <div class="app-buttons">
+          <a href="404.html" class="app-store"><i class="fab fa-google-play"></i> Google Play</a>
+          <a href="404.html" class="app-store"><i class="fab fa-apple"></i> App Store</a>
+        </div>
+        <p class="qr-note">Scan QR to download</p>
+        <img src="assets/qr" alt="QR Code" class="qr-image" />
+      </div>
+    </div>
+
+    <!-- Stay Connected (Moved Down) -->
+    <div class="footer-connect">
+      <h3>Stay Connected</h3>
+      <p>
+        Join our community for exclusive updates, behind-the-scenes stories, and upcoming show alerts.
+      </p>
+      <form class="newsletter-form" action="404.html" method="get">
+        <input type="email" placeholder="Enter your email" required />
+        <button type="submit">Subscribe</button>
+      </form>
+
+      <div class="social-icons">
+        <a href="404.html"><i class="fab fa-facebook-f"></i></a>
+        <a href="404.html"><i class="fab fa-twitter"></i></a>
+        <a href="404.html"><i class="fab fa-youtube"></i></a>
+        <a href="404.html"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>&copy; 2025 Stackly Television. All Rights Reserved. |
+        <a href="404.html">Privacy Policy</a> |
+        <a href="404.html">Terms of Service</a> |
+        <a href="404.html">Cookie Policy</a>
+      </p>
+    </div>
+  </footer>
 </body>
 
 </html>
