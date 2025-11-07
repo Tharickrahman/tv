@@ -3,21 +3,16 @@
   padding: 0;
   box-sizing: border-box;
 }
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
+
 body {
   font-family: "Poppins", sans-serif;
- background:linear-gradient(to bottom, #3b2f2f, #4e342e);
+ background: linear-gradient(to bottom, #3e2723 0%, #4e342e 50%, #5d4037 100%);
+
   color: #fff;
 }
 section {
   background:  transparent;
-    padding: 60px 0;
 }
-
 
 /* ===== Navbar ===== */
 .navbar {
@@ -624,7 +619,7 @@ body {
 
 /* Footer */
 .tv-footer {
-  /*background: linear-gradient(180deg, #2c1b0f, #3e2723);*/
+
   color: #f1e3c0;
   padding: 50px 20px 0;
   font-family: "Poppins", sans-serif;
@@ -804,7 +799,7 @@ body {
 /* BOTTOM FOOTER */
 .footer-bottom {
   text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  
   padding: 15px 10px;
   font-size: 0.9rem;
 }

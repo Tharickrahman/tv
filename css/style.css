@@ -7,7 +7,12 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background: #f5f5f5;
+  background:linear-gradient(to bottom, #3b2f2f, #4e342e);
+  color: #fff;
+}
+section {
+  background:  transparent;
+    padding: 60px 0;
 }
 
 /* ===== Navbar ===== */
@@ -456,7 +461,7 @@ body {
 /* =====section 3 ===== */
 .trending-shows {
   padding: 80px 5%;
-background: #3e2723; /* Deep rich brown */
+ /* background: #3e2723;Deep rich brown */
 background: linear-gradient(180deg, #4e342e, #3e2723);
 
  /* soft light brown gradient */
@@ -556,9 +561,9 @@ background: linear-gradient(180deg, #4e342e, #3e2723);
 /* =====section 4 ===== */
 
 .showcase-section {
- background: #3e2723; /* Deep rich brown */
+  /* background: #3e2723;Deep rich brown */
  /* dark brown tone */
- background: #3e2723; /* Deep rich brown */
+ /*  background: #3e2723;Deep rich brown */
 
   color: #fff;
   text-align: center;
