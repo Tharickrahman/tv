@@ -759,6 +759,7 @@ body {
 .newsletter-form input {
   flex: 1;
   min-width: 240px;
+  max-width: 450px;
   padding: 10px 14px;
   border: none;
   border-radius: 4px;

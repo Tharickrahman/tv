@@ -561,6 +561,7 @@ section {
 .newsletter-form input {
   flex: 1;
   min-width: 240px;
+  max-width: 450px;
   padding: 10px 14px;
   border: none;
   border-radius: 4px;
@@ -582,21 +583,6 @@ section {
   color: #2c1b0f;
 }
 
-.social-icons {
-  margin-top: 20px;
-}
-
-.social-icons a {
-  color: #fdd835;
-  font-size: 1.3rem;
-  margin: 0 10px;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.social-icons a:hover {
-  color: #fff;
-  transform: scale(1.2);
-}
 
 /* BOTTOM FOOTER */
 .footer-bottom {
