@@ -1212,6 +1212,23 @@ background: linear-gradient(180deg, #4e342e, #3e2723);
   background: #ffcc00;
   color: #2c1b0f;
 }
+.social-icons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.social-icons img.social-icon {
+  width: 28px;
+  height: 28px;
+  transition: 0.3s;
+}
+
+.social-icons img.social-icon:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
 
 
 /* BOTTOM FOOTER */

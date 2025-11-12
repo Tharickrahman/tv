@@ -927,6 +927,28 @@ body {
   color: #2c1b0f;
 }
 
+.social-icons {
+  margin-top: 20px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.social-icons img.social-icon {
+  width: 28px;
+  height: 28px;
+  transition: 0.3s;
+}
+
+.social-icons img.social-icon:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
 
 /* BOTTOM FOOTER */
 .footer-bottom {

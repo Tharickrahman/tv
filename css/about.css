@@ -751,16 +751,22 @@ section {
   margin-top: 20px;
 }
 
-.social-icons a {
-  color: #fdd835;
-  font-size: 1.3rem;
-  margin: 0 10px;
-  transition: color 0.3s ease, transform 0.3s ease;
+.social-icons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 15px;
 }
 
-.social-icons a:hover {
-  color: #fff;
+.social-icons img.social-icon {
+  width: 28px;
+  height: 28px;
+  transition: 0.3s;
+}
+
+.social-icons img.social-icon:hover {
   transform: scale(1.2);
+  cursor: pointer;
 }
 
 /* BOTTOM FOOTER */

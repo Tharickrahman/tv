@@ -745,7 +745,7 @@ body {
 
 .footer-connect p {
   color: #e0d3b8;
-  font-size: 0.95rem;
+  font-size: 1rem;
   margin-bottom: 15px;
 }
 
@@ -782,20 +782,23 @@ body {
 }
 
 .social-icons {
-  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 15px;
 }
 
-.social-icons a {
-  color: #fdd835;
-  font-size: 1.3rem;
-  margin: 0 10px;
-  transition: color 0.3s ease, transform 0.3s ease;
+.social-icons img.social-icon {
+  width: 28px;
+  height: 28px;
+  transition: 0.3s;
 }
 
-.social-icons a:hover {
-  color: #fff;
+.social-icons img.social-icon:hover {
   transform: scale(1.2);
+  cursor: pointer;
 }
+
 
 /* BOTTOM FOOTER */
 .footer-bottom {
