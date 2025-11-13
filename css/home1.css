@@ -891,7 +891,7 @@ body {
 
 .footer-connect p {
   color: #e0d3b8;
-  font-size: 0.95rem;
+  font-size: 1rem;
   margin-bottom: 15px;
 }
 
@@ -905,7 +905,7 @@ body {
 .newsletter-form input {
   flex: 1;
   min-width: 240px;
-  max-width: 450px;
+  max-width: 300px;
   padding: 10px 14px;
   border: none;
   border-radius: 4px;
